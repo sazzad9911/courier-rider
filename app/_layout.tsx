@@ -1,4 +1,8 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
+import {
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider,
+} from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -7,6 +11,9 @@ import { useEffect, useState } from "react";
 import "react-native-reanimated";
 import Header from "../components/header";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { LoaderProvider } from "@/providers/LoaderContext";
+import { AlertProvider } from "@/providers/AlertContext";
+import { AuthProvider } from "@/providers/AuthContext";
 SplashScreen.preventAutoHideAsync();
 import { AuthProvider } from "@/providers/AuthContext";
 
@@ -33,6 +40,7 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+<<<<<<< Updated upstream
       <StatusBar style="light"  />
       <AuthProvider>
       <Stack initialRouteName="login">
@@ -70,6 +78,49 @@ export default function RootLayout() {
         <Stack.Screen name="+not-found" />
       </Stack>
       </AuthProvider>
+=======
+      <StatusBar style="light" />
+      <LoaderProvider>
+        <AlertProvider>
+          <AuthProvider>
+            <Stack initialRouteName="login">
+              <Stack.Screen
+                name="login"
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="forgetpassword"
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="verifyotp"
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="newpassword"
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="contactsupport"
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen name="+not-found" />
+            </Stack>
+          </AuthProvider>
+        </AlertProvider>
+      </LoaderProvider>
+>>>>>>> Stashed changes
     </ThemeProvider>
   );
 }
