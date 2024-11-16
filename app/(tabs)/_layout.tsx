@@ -1,41 +1,27 @@
 import { Redirect, Tabs } from "expo-router";
 import React from "react";
 import { Platform } from "react-native";
-
-<<<<<<< Updated upstream
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { AntDesign, Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
-=======
 import { HapticTab } from "@/components/HapticTab";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import TabBarBackground from "@/components/ui/TabBarBackground";
-import { Colors } from "@/constants/Colors";
-import { useColorScheme } from "@/hooks/useColorScheme";
 import { useAuth } from "@/providers/AuthContext";
->>>>>>> Stashed changes
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const { user } = useAuth();
 
-<<<<<<< Updated upstream
-  //return <Redirect href={"/login"}/>
-=======
   if (!user) {
     return <Redirect href={"/login"} />;
   }
->>>>>>> Stashed changes
 
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         headerShown: false,
-<<<<<<< Updated upstream
         tabBarStyle: {
           backgroundColor: '#091242',
           borderTopEndRadius: 8,
@@ -56,38 +42,20 @@ export default function TabLayout() {
           fontSize: 11, // Adjust font size as needed
           paddingTop: 0, // Remove padding above the label
         },
-=======
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: "absolute",
-          },
-          default: {},
-        }),
->>>>>>> Stashed changes
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-<<<<<<< Updated upstream
           title: 'Dashboard',
           tabBarIcon: ({ color, focused }) => (
             <MaterialIcons name="dashboard" color={color} size={24} />
-=======
-          title: "Home",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
->>>>>>> Stashed changes
           ),
         }}
       />
       <Tabs.Screen
         name="pickup"
         options={{
-<<<<<<< Updated upstream
           title: 'Pick Up',
           tabBarIcon: ({ color, focused }) => (
             <AntDesign name="checkcircle" size={24} color={color} />
@@ -122,11 +90,6 @@ export default function TabLayout() {
           title: 'Fraud Mark',
           tabBarIcon: ({ color, focused }) => (
             <AntDesign name="checkcircle" size={24} color={color} />
-=======
-          title: "Explore",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="paperplane.fill" color={color} />
->>>>>>> Stashed changes
           ),
         }}
       />

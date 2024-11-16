@@ -15,7 +15,6 @@ import { LoaderProvider } from "@/providers/LoaderContext";
 import { AlertProvider } from "@/providers/AlertContext";
 import { AuthProvider } from "@/providers/AuthContext";
 SplashScreen.preventAutoHideAsync();
-import { AuthProvider } from "@/providers/AuthContext";
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -40,49 +39,10 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-<<<<<<< Updated upstream
-      <StatusBar style="light"  />
-      <AuthProvider>
-      <Stack initialRouteName="login">
-        <Stack.Screen
-          name="login"
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="forgetpassword"
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="verifyotp"
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="newpassword"
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="contactsupport"
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen name="(tabs)" options={{ header: () => <Header /> }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      </AuthProvider>
-=======
       <StatusBar style="light" />
-      <LoaderProvider>
-        <AlertProvider>
-          <AuthProvider>
+      <AuthProvider>
+        <LoaderProvider>
+          <AlertProvider>
             <Stack initialRouteName="login">
               <Stack.Screen
                 name="login"
@@ -114,13 +74,15 @@ export default function RootLayout() {
                   headerShown: false,
                 }}
               />
-              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen
+                name="(tabs)"
+                options={{ header: () => <Header /> }}
+              />
               <Stack.Screen name="+not-found" />
             </Stack>
-          </AuthProvider>
-        </AlertProvider>
-      </LoaderProvider>
->>>>>>> Stashed changes
+          </AlertProvider>
+        </LoaderProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 }
