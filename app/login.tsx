@@ -14,10 +14,11 @@ import {
   //import { useLoader } from "@/providers/LoaderContext";
   //import { useAlert } from "@/providers/AlertContext";
   //import { useAuth } from "@/providers/AuthContext";
-  
+
   export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    
     //const { showLoader, hideLoader } = useLoader();
     //const { showAlert } = useAlert();
     //const { login } = useAuth();
@@ -52,19 +53,19 @@ import {
             />
           </View>
           <Text style={{ fontSize: 20, color: "white" }}>
-            Sign In to Green Bangla
+            Rider In Green Bangla
           </Text>
-          <Text style={{ fontSize: 12, color: "gray", marginTop: 10 }}>
+          <Text style={{ fontSize: 12, color: "white", marginTop: 10 }}>
             "Sign in to Green Bangla and access a world of sustainable{" "}
           </Text>
-          <Text style={{ fontSize: 12, color: "gray", marginVertical: 3 }}>
+          <Text style={{ fontSize: 12, color: "white", marginVertical: 3 }}>
             solutions at your fingertips. Join us in building a greener,{" "}
           </Text>
-          <Text style={{ fontSize: 12, color: "gray", marginBottom: 10 }}>
+          <Text style={{ fontSize: 12, color: "white", marginBottom: 10 }}>
             cleaner Bangladesh!"
           </Text>
           <TextInput
-            placeholder="Email"
+            placeholder="Phone"
             value={email}
             onChangeText={setEmail}
             style={styles.input}
@@ -114,7 +115,7 @@ import {
             <TouchableOpacity
               onPress={() => router.push({ pathname: "/contactsupport" })}
             >
-              <Text style={styles.signUpText}>Sign Up</Text>
+              <Text style={styles.signUpText}>Contact Support</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -124,12 +125,12 @@ import {
   
   const styles = StyleSheet.create({
     bodyContainer: {
-      backgroundColor: "#091242", // Body background color
+      backgroundColor: "#224B26", // Body background color
       flex: 1,
       padding: 7,
     },
     headerContainer: {
-      backgroundColor: "#091242", // Matches body background color
+      //backgroundColor: "#091242", // Matches body background color
       //paddingVertical: 20,
       marginTop: 40,
       marginBottom: 30,

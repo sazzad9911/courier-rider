@@ -4,13 +4,13 @@ import { router } from 'expo-router';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function ForgetPassword() {
+export default function VerifyOtp() {
     const navigation = useNavigation();
-    const [phone, setPhone] = useState('');
+    const [otp, setOtp] = useState('');
     
   return (
     <ScrollView style={styles.bodyContainer}>
-        <TouchableOpacity style={{marginTop:35,flexDirection:'row'}} onPress={() => navigation.goBack()}>
+        <TouchableOpacity style={{marginTop:35}} onPress={() => navigation.goBack()}>
             <AntDesign name="left" size={20} color="white" />
         </TouchableOpacity>
       <View style={styles.headerContainer}>
@@ -19,19 +19,19 @@ export default function ForgetPassword() {
                 //style={styles.profileImage}
               />
       </View>
-      <Text style={{fontSize:20,color:'white'}}>Forget Password</Text>
+      <Text style={{fontSize:20,color:'white'}}>Verify OTP</Text>
       <Text style={{fontSize:12,color:'white',marginTop:10}}>"Sign in to Green Bangla and access a world of sustainable </Text>
       <Text style={{fontSize:12,color:'white',marginVertical:3}}>solutions at your fingertips. Join us in building a greener, </Text>
       <Text style={{fontSize:12,color:'white',marginBottom:10}}>cleaner Bangladesh!"</Text>
         <TextInput
-            placeholder="Phone Number"
-            value={phone}
-            onChangeText={setPhone}
+            placeholder="Your OTP"
+            value={otp}
+            onChangeText={setOtp}
             secureTextEntry={true} // This makes the text input secure
             style={styles.input}
             />
       {/* Submit Button */}
-      <TouchableOpacity onPress={() => router.push({ pathname: "/verifyotp" })} style={styles.submitButton}>
+      <TouchableOpacity onPress={() => router.push({ pathname: "/newpassword" })} style={styles.submitButton}>
         <Text style={styles.submitButtonText}>Next</Text>
       </TouchableOpacity>
       {/* Sign Up Link */}
