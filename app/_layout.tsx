@@ -32,6 +32,8 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+      <StatusBar style="light"  />
+
       <Stack initialRouteName="login">
         <Stack.Screen
           name="login"
@@ -39,10 +41,34 @@ export default function RootLayout() {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="forgetpassword"
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="verifyotp"
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="newpassword"
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="contactsupport"
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
-      <StatusBar style="auto" />
+      
     </ThemeProvider>
   );
 }

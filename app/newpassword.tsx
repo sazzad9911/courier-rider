@@ -4,52 +4,47 @@ import { router } from 'expo-router';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function ContactSupport() {
+export default function NewPassword() {
     const navigation = useNavigation();
-    const [name, setName] = useState('');
-    const [phone, setPhone] = useState('');
-    const [message, setMessage] = useState('');
+    const [password, setPassword] = useState('');
     
   return (
     <ScrollView style={styles.bodyContainer}>
         <TouchableOpacity style={{marginTop:35}} onPress={() => navigation.goBack()}>
             <AntDesign name="left" size={20} color="white" />
         </TouchableOpacity>
-      <Text style={{fontSize:20,color:'white',marginTop:20,}}>Contact Form</Text>
-      <Text style={{fontSize:12,color:'white',marginTop:10}}>"A contact form is a simple, user-friendly way for visitors to  </Text>
-      <Text style={{fontSize:12,color:'white',marginTop:3}}>reach out to a website owner or support team. It typically  </Text>
-      <Text style={{fontSize:12,color:'white',marginVertical:3}}>includes fields like name, email, subject, and message to </Text>
-      <Text style={{fontSize:12,color:'white',marginBottom:10}}>streamline communication and inquiries. </Text>
-      <TextInput
-            placeholder="Your Name"
-            value={name}
-            onChangeText={setName}
-            style={styles.input}
-            autoCapitalize="words" // Capitalize the first letter of each word
-            autoComplete="name" // Helps with autofill on some devices
-          />
+      <View style={styles.headerContainer}>
+      <Image
+                source={require('../assets/images/loginimg.png')}
+                //style={styles.profileImage}
+              />
+      </View>
+      <Text style={{fontSize:20,color:'white'}}>New Password</Text>
+      <Text style={{fontSize:12,color:'white',marginTop:10}}>"Sign in to Green Bangla and access a world of sustainable </Text>
+      <Text style={{fontSize:12,color:'white',marginVertical:3}}>solutions at your fingertips. Join us in building a greener, </Text>
+      <Text style={{fontSize:12,color:'white',marginBottom:10}}>cleaner Bangladesh!"</Text>
         <TextInput
-            placeholder="Your Phone Number"
-            value={phone}
-            onChangeText={setPhone}
-            
+            placeholder="New Password"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry={true} // This makes the text input secure
             style={styles.input}
             />
-        <TextInput
-            placeholder="Your Message"
-            value={message}
-            onChangeText={setMessage}
-            style={styles.input2}
-            multiline={true} // Enables multiline input
+            <TextInput
+            placeholder="Re-type Password"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry={true} // This makes the text input secure
+            style={styles.input}
             />
       {/* Submit Button */}
-      <TouchableOpacity style={styles.submitButton}>
+      <TouchableOpacity onPress={() => router.push({ pathname: "/login" })} style={styles.submitButton}>
         <Text style={styles.submitButtonText}>Submit</Text>
       </TouchableOpacity>
       {/* Sign Up Link */}
       <View style={styles.signUpContainer}>
         <Text style={{color:'white',fontSize:13}}>Don’t have any account? </Text>
-        <TouchableOpacity>
+        <TouchableOpacity >
           <Text style={styles.signUpText}>Sign In</Text>
         </TouchableOpacity>
       </View>
@@ -63,6 +58,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#224B26', // Body background color
     flex: 1,
     padding: 7,
+  },
+  headerContainer: {
+    //backgroundColor: '#091242', // Matches body background color
+    //paddingVertical: 20,
+    marginTop:20,
+    marginBottom:30,
+    alignItems: 'center',
+  },
+  headerText: {
+    fontSize: 20,
+    color: 'white',
+  },
+  textStyle: {
+    fontSize: 12,
+    alignSelf: 'center',
+    color: 'white',
+    textAlign: 'center',
+    marginHorizontal: 10,
+    marginTop: 10,
   },
   submitButton: {
     backgroundColor: '#FFB82B',
@@ -84,15 +98,6 @@ const styles = StyleSheet.create({
     marginTop:12,
     color: '#000',
     height:40,
-  },
-  input2: {
-    backgroundColor: '#E0E0E0',
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    marginTop:12,
-    color: '#000',
-    height:80,
   },
   signUpContainer: {
     flexDirection: 'row',
