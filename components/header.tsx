@@ -24,7 +24,7 @@ export default function Header() {
           />
         </ThemedView>
         {/* Balance Information */}
-        <ThemedText style={styles.balanceText}>{user?.balance.toFixed(2)} BDT</ThemedText>
+        <ThemedText style={styles.balanceText}>{user?.balance?.toFixed(2)||"0.00"} BDT</ThemedText>
         {/* Profile Image */}
         <TouchableOpacity >
           <Image
