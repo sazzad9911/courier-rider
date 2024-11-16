@@ -8,6 +8,7 @@ import "react-native-reanimated";
 import Header from "../components/header";
 import { useColorScheme } from "@/hooks/useColorScheme";
 SplashScreen.preventAutoHideAsync();
+import { AuthProvider } from "@/providers/AuthContext";
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -33,7 +34,7 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <StatusBar style="light"  />
-
+      <AuthProvider>
       <Stack initialRouteName="login">
         <Stack.Screen
           name="login"
@@ -68,7 +69,7 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" options={{ header: () => <Header /> }} />
         <Stack.Screen name="+not-found" />
       </Stack>
-      
+      </AuthProvider>
     </ThemeProvider>
   );
 }
