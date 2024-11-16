@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#004d00', // Green background
         paddingHorizontal: 10,
         //paddingVertical: 15,
-        paddingTop: 30,
+        paddingTop: 25,
         paddingBottom: 5,
       },
       searchContainer: {
