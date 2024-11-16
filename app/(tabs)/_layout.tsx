@@ -20,7 +20,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#224B26',
+          backgroundColor: '#091242',
           borderTopEndRadius: 8,
           borderTopStartRadius: 8,
           paddingBottom: 5,

@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     headerContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#004d00', // Green background
+        backgroundColor: '#091242', // Green background
         paddingHorizontal: 10,
         //paddingVertical: 15,
         paddingTop: 25,
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
         flex: 1,  // This ensures the search bar takes most of the width
         marginRight: 20,
         paddingHorizontal: 10,
+        height: 35,  // Reduced height for the search container
       },
       searchIcon: {
         marginRight: 5,

@@ -1,74 +1,251 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
+import React from 'react'
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
+import Entypo from '@expo/vector-icons/Entypo';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
-export default function HomeScreen() {
+export default function index() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
-}
+    <ScrollView style={{ flex: 1,backgroundColor: "#224B26", }}>
+      <View style={styles.bodyContainer}>
+        <View style={styles.row}>
+            {/* Total Parcel */}
+            <View style={styles.card}>
+              <View style={styles.iconContainer}>
+                <FontAwesome name="archive" size={24} color="blue" />
+                <Text style={styles.cardTitle}>Total Pick Up</Text>
+              </View>
+              <View
+                style={{ flexDirection: "row", justifyContent: "space-between" }}
+              >
+                <Text style={styles.countText}>0</Text>
+                <Text style={styles.amountText}>0 BDT</Text>
+              </View>
+            </View>
 
+            {/* Delivered */}
+            <View style={styles.card}>
+              <View style={styles.iconContainer}>
+                <MaterialIcons name="local-shipping" size={24} color="green" />
+                <Text style={styles.cardTitle}>Delivered</Text>
+              </View>
+              <View
+                style={{ flexDirection: "row", justifyContent: "space-between" }}
+              >
+                <Text style={styles.countText}>0</Text>
+                <Text style={styles.amountText}>0 BDT</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.row}>
+            {/* Pending */}
+            <View style={styles.card}>
+              <View style={styles.iconContainer}>
+                <MaterialIcons name="access-time" size={24} color="orange" />
+                <Text style={styles.cardTitle}>Pending</Text>
+              </View>
+              <View
+                style={{ flexDirection: "row", justifyContent: "space-between" }}
+              >
+                <Text style={styles.countText}>0</Text>
+                <Text style={styles.amountText}>0 BDT</Text>
+              </View>
+            </View>
+
+            {/* Partially Delivered */}
+            <View style={styles.card}>
+              <View style={styles.iconContainer}>
+                <Entypo name="circle-with-cross" size={24} color="red" />
+                <Text style={styles.cardTitle}>Fraud</Text>
+              </View>
+              <View
+                style={{ flexDirection: "row", justifyContent: "space-between" }}
+              >
+                <Text style={styles.countText}>0</Text>
+                <Text style={styles.amountText}>0 BDT</Text>
+              </View>
+            </View>
+        </View>
+        <View>
+          <Text style={{ color: "white", fontSize: 16, marginVertical: 10 }}>
+            Options
+          </Text>
+        </View>
+        <View style={styles.row2}>
+          <TouchableOpacity style={styles.card2}>
+            <View style={styles.cardstyle}>
+              <MaterialIcons name="request-page" size={24} color="green" />
+              <Text style={{ fontSize: 15 }}>Payment Request</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.card2}>
+            <View style={styles.cardstyle}>
+              <FontAwesome name="headphones" size={24} color="blue" />
+              <Text style={{ fontSize: 15 }}>Customer Support</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <Text style={{ fontSize: 16, color: "white", marginVertical: 10 }}>
+          Informations
+        </Text>
+        <View style={styles.row3}>
+          <TouchableOpacity style={styles.card3}>
+            <View style={{ alignItems: "center", padding: 5 }}>
+              <Text style={{ fontSize: 15 }}>Payments</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.card3}>
+            <View style={{ alignItems: "center", padding: 5 }}>
+              <Text style={{ fontSize: 15 }}>Export</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.row3}>
+          <TouchableOpacity style={styles.card3}>
+            <View style={{ alignItems: "center", padding: 5 }}>
+              <Text style={{ fontSize: 15 }}>Status</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.card3}>
+            <View style={{ alignItems: "center", padding: 5 }}>
+              <Text style={{ fontSize: 15 }}>Amount Charge</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <Text style={{ fontSize: 16, color: "white", marginVertical: 10 }}>
+          Reports
+        </Text>
+        <View style={styles.row4}>
+          <TouchableOpacity style={styles.card4}>
+            <View style={{ alignItems: "center", padding: 5 }}>
+              <Text style={{ fontSize: 15, color: "white" }}>
+                Pending Parcel
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.card4}>
+            <View style={{ alignItems: "center", padding: 5 }}>
+              <Text style={{ fontSize: 15, color: "white" }}>
+                Today's Cancelled
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.row4}>
+          <TouchableOpacity
+            style={styles.card4}
+            
+          >
+            <View style={{ alignItems: "center", padding: 5 }}>
+              <Text style={{ fontSize: 15, color: "white" }}>
+                Latest Return
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.card4}
+           
+          >
+            <View style={{ alignItems: "center", padding: 5 }}>
+              <Text style={{ fontSize: 15, color: "white" }}>
+                Cancellation Request
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ScrollView>
+  )
+}
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  bodyContainer: {
+    
+    flex: 1,
+    padding: 5,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  row: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    //marginVertical: 10,
+    marginTop: 10,
+    //padding:4,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  card: {
+    flex: 1,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    padding: 5,
+    marginHorizontal: 5,
+  },
+  iconContainer: {
+    marginBottom: 10,
+    flexDirection: "row",
+  },
+  cardTitle: {
+    fontSize: 14,
+    color: "gray",
+    fontWeight: "bold",
+    textAlign: "center",
+    marginLeft: 15,
+  },
+  countText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#000",
+    marginLeft:5,
+  },
+  amountText: {
+    fontSize: 16,
+    color: "#888",
+    //textAlign: 'center',
+  },
+  row2: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    //marginTop:10,
+  },
+  card2: {
+    flex: 1,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    padding: 5,
+    marginHorizontal: 5,
+    height: 50,
+  },
+  cardstyle: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 5,
+  },
+  row3: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 10,
+  },
+  card3: {
+    flex: 1,
+    backgroundColor: "#EFE0C0",
+    borderRadius: 10,
+    padding: 5,
+    marginHorizontal: 5,
+    height: 50,
+  },
+  row4: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+
+    marginBottom: 10,
+  },
+  card4: {
+    //flex: 1,
+    //backgroundColor: '#EFE0C0',
+    borderRadius: 10,
+    padding: 5,
+    //marginHorizontal: 5,
+
+    height: 50,
+    width: "49%",
+    borderWidth: 1,
+    borderColor: "gray",
   },
 });
