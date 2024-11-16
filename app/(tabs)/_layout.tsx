@@ -7,39 +7,87 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { AntDesign, Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
-  return <Redirect href={"/login"}/>
+  //return <Redirect href={"/login"}/>
 
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+        tabBarStyle: {
+          backgroundColor: '#224B26',
+          borderTopEndRadius: 8,
+          borderTopStartRadius: 8,
+          paddingBottom: 5,
+          paddingTop: 5,
+          height: 55, // Adjusted height for better alignment
+        },
+        tabBarInactiveTintColor: '#fff',
+        tabBarItemStyle: {
+          justifyContent: 'flex-start', // Align content to the top of the tab item
+          alignItems: 'center', // Center horizontally
+        },
+        tabBarIconStyle: {
+          //marginBottom: -5, // Move icon upwards
+        },
+        tabBarLabelStyle: {
+          fontSize: 11, // Adjust font size as needed
+          paddingTop: 0, // Remove padding above the label
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Dashboard',
+          tabBarIcon: ({ color, focused }) => (
+            <MaterialIcons name="dashboard" color={color} size={24} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="pickup"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Pick Up',
+          tabBarIcon: ({ color, focused }) => (
+            <AntDesign name="checkcircle" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="delivery"
+        options={{
+          title: 'Delivery',
+          tabBarIcon: ({ color, focused }) => (
+            <MaterialCommunityIcons
+              name="truck-delivery-outline"
+              size={26}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="myarea"
+        options={{
+          title: 'My Area',
+          tabBarIcon: ({ color, focused }) => (
+            <MaterialCommunityIcons name="google-maps" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="fraudmark"
+        options={{
+          title: 'Fraud Mark',
+          tabBarIcon: ({ color, focused }) => (
+            <AntDesign name="checkcircle" size={24} color={color} />
+          ),
         }}
       />
     </Tabs>

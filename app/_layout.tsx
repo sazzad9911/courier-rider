@@ -5,7 +5,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import "react-native-reanimated";
-
+import Header from "../components/header";
 import { useColorScheme } from "@/hooks/useColorScheme";
 SplashScreen.preventAutoHideAsync();
 
@@ -65,7 +65,7 @@ export default function RootLayout() {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ header: () => <Header /> }} />
         <Stack.Screen name="+not-found" />
       </Stack>
       
