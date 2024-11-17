@@ -34,13 +34,14 @@ export default function ParcelDetails() {
             marginTop: 15,
           }}
         >
-          <TextInput
+          <TextInput placeholder="Enter code"
             style={{
               backgroundColor: "#dadada",
               flex: 1,
               height: 35,
               borderRadius: 5,
               paddingHorizontal: 10,
+            
             }}
           />
           <TouchableOpacity
