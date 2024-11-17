@@ -52,9 +52,9 @@ const App = () => {
           <Text style={{ textAlign: 'center', fontSize: 16, }}>Update</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{justifyContent: 'center',borderWidth:1,height:50,width:'60%',backgroundColor:'#DF3C3E',borderRadius:7,marginTop:50}}>
-        <View style={{flexDirection:'row', alignItems: 'center',paddingHorizontal:10}}>
+        <View style={{flexDirection:'row', alignItems: 'center',marginLeft:35}}>
           <AntDesign name="poweroff" size={20} color="white" style={{ marginRight: 1 }}/>
-          <Text>Turn Off Location</Text>
+          <Text style={{color:'white',fontSize:13,marginLeft:12}}>Turn Off Location</Text>
         </View>
       </TouchableOpacity>
     
