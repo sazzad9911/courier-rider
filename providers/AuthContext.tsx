@@ -22,6 +22,10 @@ interface User {
   password: string;
   phone: string;
   pushToken: string;
+  nid:string;
+  district:string;
+  division:string;
+  isActive:boolean;
 }
 
 interface AuthContextType {

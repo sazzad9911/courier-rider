@@ -26,7 +26,7 @@ export default function Header() {
         {/* Balance Information */}
         <ThemedText style={styles.balanceText}>{user?.balance?.toFixed(2)||"0.00"} BDT</ThemedText>
         {/* Profile Image */}
-        <TouchableOpacity >
+        <TouchableOpacity onPress={()=>router.push("/profile")} >
           <Image
             source={user?.image?{uri:user.image}:require('../assets/images/user.png')}
             style={styles.profileImage}

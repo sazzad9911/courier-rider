@@ -1,12 +1,45 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, TextInput } from 'react-native';
 import React, { useState } from 'react';
-import { router } from 'expo-router';
+import { router, useSegments } from 'expo-router';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
+import { putApi } from '@/constants/API';
+import { useAlert } from '@/providers/AlertContext';
+import { useLoader } from '@/providers/LoaderContext';
 
 export default function VerifyOtp() {
     const navigation = useNavigation();
     const [otp, setOtp] = useState('');
+    const params =new URLSearchParams()
+    const {showAlert}=useAlert()
+    const {showLoader,hideLoader}=useLoader()
+    console.log(params)
+
+    const handleAction = async () => {
+      showLoader();
+      try {
+        const loginRes = await putApi(
+          "/apis/auth/rider/forget-password",
+          undefined,
+          {
+           // key: key,
+            OTP:otp
+          }
+        );
+        router.replace({
+          pathname: "/newpassword",
+          params: { token: loginRes.data.token },
+        });
+        hideLoader();
+        showAlert("success", "OTP has send");
+      } catch (error: any) {
+        hideLoader();
+        console.log(error.response.data);
+        const errorMessage =
+          error?.response?.data?.error || "An unexpected error occurred";
+        showAlert("error", errorMessage);
+      }
+    };
     
   return (
     <ScrollView style={styles.bodyContainer}>
@@ -31,7 +64,7 @@ export default function VerifyOtp() {
             style={styles.input}
             />
       {/* Submit Button */}
-      <TouchableOpacity onPress={() => router.push({ pathname: "/newpassword" })} style={styles.submitButton}>
+      <TouchableOpacity onPress={handleAction} style={styles.submitButton}>
         <Text style={styles.submitButtonText}>Next</Text>
       </TouchableOpacity>
       {/* Sign Up Link */}
