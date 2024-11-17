@@ -14,6 +14,7 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 import { LoaderProvider } from "@/providers/LoaderContext";
 import { AlertProvider } from "@/providers/AlertContext";
 import { AuthProvider } from "@/providers/AuthContext";
+import BackHeader from "@/components/BackHeader";
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -100,6 +101,14 @@ export default function RootLayout() {
                   //headerStyle: { backgroundColor: '#091242' },
                   //headerTintColor: '#fff', // Sets the header text color to white
                   headerShown: false,
+                }}
+              />
+               <Stack.Screen
+                name="parceldetails"
+                options={{
+                  //headerStyle: { backgroundColor: '#091242' },
+                  //headerTintColor: '#fff', // Sets the header text color to white
+                  header:()=><BackHeader/>
                 }}
               />
 

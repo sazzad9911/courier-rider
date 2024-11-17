@@ -32,7 +32,7 @@ export default function ForgetPassword() {
           phoneNumber: phone,
         }
       );
-      console.log(loginRes.data.key)
+      //console.log(loginRes.data.key)
       router.replace({
         pathname: "/verifyotp",
         params: { key: loginRes.data.key },
